@@ -1,0 +1,13 @@
+{
+  "name": "csbc1030",
+  "version": "1.0.0",
+  "description": "assignment01",
+  
+  "main": "assignment1/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node assignment1/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
