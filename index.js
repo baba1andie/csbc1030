@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 
-async function processNumbers(inputFilePath, outputFilePath) {
+async function transformNumbers(inputFilePath, outputFilePath) {
   try {    const inputData = await fs.readFile(inputFilePath, 'utf-8');
     const numbers = JSON.parse(inputData);
 
@@ -20,4 +20,4 @@ async function processNumbers(inputFilePath, outputFilePath) {
 const inputFilePath = 'samples/sample_input_numbers.json';
 const outputFilePath = 'samples/sample_output_numbers.json';
 
-processNumbers(inputFilePath, outputFilePath);
+transformNumbers(inputFilePath, outputFilePath);
