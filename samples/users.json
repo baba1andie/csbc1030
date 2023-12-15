@@ -1,0 +1,15 @@
+[
+  { "id": 1, "fname": "Shree Lakshmi", "lname": "Athinarayanan" },
+  { "id": 2, "fname": "Jacky", "lname": "Chan" },
+  { "id": 3, "fname": "Bruce", "lname": "Lee" },
+  {
+    "fname": "Vimmi",
+    "lname": "Cheru",
+    "id": "a9ede42f-3e26-4645-86d9-d40015682ad3"
+  },
+  {
+    "fname": "Yati",
+    "phone": "Tyagi",
+    "id": "ae20466e-bb5f-4d9d-b735-ee67ab0827a1"
+  }
+]
