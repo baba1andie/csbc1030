@@ -1,6 +1,23 @@
 # csbc1030
 
-Welcome to CSBC1030 - Fall 2023 
-This repo is where you will submit your assignments for review. 
+1. Open postman
 
-Asignment 1 - Please refer to the instructions in Assignment1.txt for instructions on how to submit your work.
+2. Get users
+
+- Keep "Get" and send request to http://localhost:1010/users
+
+3. Post users
+
+- Keep "Post"
+- Write a new users info in body part
+- {
+  "id": "3",
+  "name": "New User",
+  "email": "newuser@example.com"
+  }
+- Send request to http://localhost:1010/users
+
+4. Run lint
+
+- npm run lint
+- npm run lint:fix
