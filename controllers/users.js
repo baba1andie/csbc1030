@@ -7,7 +7,7 @@ const usersFilePath = "./samples/users.json";
 
 const appendUser = (req, res) => {
   const newUser = req.body;
-  newUser.id = uuidv4(); // Generate a new UUID for the user
+  newUser.id = uuidv4();
 
   const existingUsers = JSON.parse(fs.readFileSync(usersFilePath));
   existingUsers.push(newUser);
