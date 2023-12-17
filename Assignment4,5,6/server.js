@@ -8,11 +8,6 @@ const SECRET_KEY = "2fd45a9c8b1e6f37d0a4c8e5b2f971d4a6bc3e188f67c92a3e87bf3a8c6d
 
 app.use(express.json());
 
-// Middleware for handling errors
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send("Something went wrong!");
-// });
 
 const usersData = JSON.parse(fs.readFileSync("users.json", "utf-8"));
 
@@ -82,7 +77,6 @@ app.post("/users", authenticateToken, (req, res) => {
   // Append the new user to the existing data
   usersData.push(newUser);
 
-  // Update the users file
   fs.writeFileSync("users.json", JSON.stringify(usersData, null, 2), "utf-8");
 
   res.status(201).json(newUser);
