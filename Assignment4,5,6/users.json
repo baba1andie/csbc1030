@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "username": "Prgya Kapur",
+    "email": "prgyakapur@gmail.com",
+    "age": 24,
+    "password": "hashed_password"
+  },
+  {
+    "id": 2,
+    "username": "Nirmit Khurana",
+    "email": "nirmitkhurana@gmail.com",
+    "age": 23,
+    "password": 12345
+  },
+  {
+    "id": 3,
+    "username": "Aditya Kuchhal",
+    "email": "adityakuchhal@gmail.com",
+    "age": 22,
+    "password": 123456
+  },
+  {
+    "id": 5,
+    "username": "Prachi Luthra",
+    "email": "prachiluthra@gmail.com",
+    "age": 24,
+    "password": "hashed_password_2"
+  },
+  {
+    "username": "Palak",
+    "email": "palak@gmail.com",
+    "age": 24,
+    "password": "hashed_password_10"
+  }
+]
