@@ -27,7 +27,7 @@ npm run lint
 npm run lint:fix
 
 Step 3: To Login, Open the following url in browser for post('/')
-http://localhost:3000/api/
+http://localhost:3000/api/users/login
 
 Json Body example
 {
@@ -35,13 +35,13 @@ Json Body example
 "password": "123"
 }
 
-Step 3: Open the following url in browser for get('/')
+Step 4: Open the following url in browser for get('/')
 http://localhost:3000/api/users
 
-Step 4: Open the following url in browser for get('/:id')
+Step 5: Open the following url in browser for get('/:id')
 http://localhost:3000/api/users/{id}
 
-Step 5: Open the following url in browser for post('/')
+Step 6: Open the following url in browser for post('/')
 http://localhost:3000/api/users
 
 Json Body example
