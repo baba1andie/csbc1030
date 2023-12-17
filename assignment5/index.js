@@ -3,12 +3,13 @@
 const express = require("express");
 const app = express();
 const usersRoutes = require("./routes/userRoutes");
+const errorHandler = require('./errorHandlers/errorHandler')
 
 // const { authenticate } = require("./middleware/authMiddleware");
 // const errorHandler = require("./errorHandlers/errorHandler");
 
 app.use(express.json());
-// app.use(errorHandler);
+app.use(errorHandler);
 
 app.use("/users", usersRoutes);
 

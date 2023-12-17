@@ -1,11 +1,15 @@
 [
     {
       "id": 1,
+      "username": "pooja_G",
+    "password": "password123",
       "first_name": "pooja",
       "last_name": "Gadge"
     },
     {
       "id": 2,
+      "username": "abcDef",
+        "password": "pass123",
       "first_name": "abc",
       "last_name": "def"
     }
