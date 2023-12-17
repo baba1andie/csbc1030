@@ -18,7 +18,7 @@ userRoutes.get("/", (_, res) => {
 });
 
 userRoutes.post("/", (req, res) => {
-  if (req.auth.id !== "1") {
+  if (req.auth.id !== 1) {
     return res.status(403).send("Cannot append user if not user ID 1");
   }
   const userPromise = insertUser(req.body);
@@ -33,7 +33,7 @@ userRoutes.post("/", (req, res) => {
 });
 
 userRoutes.get("/:id", (req, res) => {
-  if (req.auth.id !== req.params.id) {
+  if (req.auth.id !== Number(req.params.id)) {
     return res.status(403).send("Cannot fetch other user's profile");
   }
   const userPromise = getUser(req.params.id);
