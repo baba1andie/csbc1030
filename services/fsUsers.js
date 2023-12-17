@@ -19,7 +19,7 @@ const readFile = async () => {
   }
 };
 
-const addUser = (users) => {
+const addUser = (user, users) => {
   try {
     fs.writeFile(usersInputPath, JSON.stringify(users));
   } catch (error) {

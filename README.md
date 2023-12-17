@@ -8,6 +8,9 @@ Asignment 1 - Please refer to the instructions in Assignment1.txt for instructio
 Step 1: Run the following to import express into node_modules
 npm install express
 npm install uuid
+npm install express bcrypt jsonwebtoken
+npm install express cookie-parser --save
+npm install dotenv
 
 # To install eslint and prettier: (Optional)
 
@@ -23,17 +26,27 @@ npm run format
 npm run lint
 npm run lint:fix
 
+Step 3: To Login, Open the following url in browser for post('/')
+http://localhost:3000/api/
+
+Json Body example
+{
+"email": "asl@gmail.com",
+"password": "123"
+}
+
 Step 3: Open the following url in browser for get('/')
 http://localhost:3000/api/users
 
 Step 4: Open the following url in browser for get('/:id')
-http://localhost:3000/api/users/1
+http://localhost:3000/api/users/{id}
 
 Step 5: Open the following url in browser for post('/')
 http://localhost:3000/api/users
 
 Json Body example
 {
-"fname": "Yati",
-"phone": "Tyagi"
+"email": "asl@gmail.com",
+"name": "asl",
+"password": "123"
 }
