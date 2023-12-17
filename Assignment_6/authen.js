@@ -9,7 +9,7 @@ function auth(req, res, next) {
   if (!token) {
     return res.status(401).json({ error: 'Unauthorized!!' });
   }
-
+//
   try {
     console.log("try");
     const decoded = jwt.verify(token, process.env.SECRET_KEY);
