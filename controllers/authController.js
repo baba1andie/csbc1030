@@ -1,16 +1,17 @@
-const { readFile } = require("../services/fsUsers.js");
 const bcrypt = require("bcrypt");
 
 const { generateToken } = require("../services/authService.js");
-
-let usersObj = [];
+const { User } = require("../models/user.js");
 
 const loginUser = async (req, res) => {
   try {
-    usersObj = await readFile();
     const userEmail = req.body.email;
-    const user = usersObj.find((u) => u.email == userEmail);
-    if (user != undefined) {
+
+    const user = await User.findOne({
+      where: { email: userEmail },
+    });
+
+    if (user) {
       const validPass = await bcrypt.compare(req.body.password, user.password);
 
       if (!validPass) {
@@ -29,7 +30,7 @@ const loginUser = async (req, res) => {
       res.status(400).send(err);
     }
   } catch (error) {
-    res.status(400).send({ Error: error });
+    res.status(400).send({ error: error.message });
   }
 };
 

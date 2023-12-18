@@ -6,11 +6,12 @@ This repo is where you will submit your assignments for review.
 Asignment 1 - Please refer to the instructions in Assignment1.txt for instructions on how to submit your work.
 
 Step 1: Run the following to import express into node_modules
+npm init -y
 npm install express
-npm install uuid
 npm install express bcrypt jsonwebtoken
 npm install express cookie-parser --save
 npm install dotenv
+npm install express sequelize mysql2 body-parser
 
 # To install eslint and prettier: (Optional)
 
