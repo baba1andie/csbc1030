@@ -3,6 +3,7 @@ const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const passportJWT = require("passport-jwt");
+const { Sequelize, DataTypes } = require("sequelize"); // Add Sequelize and DataTypes
 
 const app = express();
 const port = 3000;
@@ -11,8 +12,31 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Read users from the file
-const usersData = JSON.parse(fs.readFileSync("./users.json", "utf-8"));
+// Create Sequelize instance and define the User model
+const sequelize = new Sequelize({
+  dialect: "mysql",
+  host: "localhost",
+  port: 3307,
+  username: "root",
+  password: "Parth1305",
+  database: "assignment7",
+});
+
+const User = sequelize.define("User", {
+  id: {
+    type: DataTypes.STRING,
+    primaryKey: true,
+  },
+  name: {
+    type: DataTypes.STRING,
+  },
+  email: {
+    type: DataTypes.STRING,
+  },
+  password: {
+    type: DataTypes.STRING,
+  },
+});
 
 // Configure Passport
 passport.use(
@@ -23,12 +47,17 @@ passport.use(
     },
     (payload, done) => {
       // Check if the user exists and return it
-      const user = usersData.find((u) => u.id === payload.sub);
-      if (user) {
-        return done(null, user);
-      } else {
-        return done(null, false);
-      }
+      User.findByPk(payload.sub)
+        .then((user) => {
+          if (user) {
+            return done(null, user);
+          } else {
+            return done(null, false);
+          }
+        })
+        .catch((err) => {
+          return done(err, false);
+        });
     }
   )
 );
@@ -41,19 +70,27 @@ const authenticate = passport.authenticate("jwt", { session: false });
 // Login route
 app.post("/users/login", (req, res) => {
   const { email, password } = req.body;
-  const user = usersData.find(
-    (u) => u.email === email && u.password === password
-  );
-
-  if (user) {
-    // Generate a JWT token upon successful login
-    const token = jwt.sign({ sub: user.id }, "your_secret_key", {
-      expiresIn: "1h",
+  User.findOne({
+    where: {
+      email: email,
+      password: password,
+    },
+  })
+    .then((user) => {
+      if (user) {
+        // Generate a JWT token upon successful login
+        const token = jwt.sign({ sub: user.id }, "your_secret_key", {
+          expiresIn: "1h",
+        });
+        res.json({ token });
+      } else {
+        res.status(401).json({ error: "Invalid credentials" });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Internal Server Error" });
     });
-    res.json({ token });
-  } else {
-    res.status(401).json({ error: "Invalid credentials" });
-  }
 });
 
 // Protected route - GET /users/:id
@@ -82,7 +119,14 @@ app.post("/users", authenticate, (req, res) => {
 
 // Route to get all users
 app.get("/users", (req, res) => {
-  res.json(usersData);
+  User.findAll()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ error: "Internal Server Error" });
+    });
 });
 
 // Error handling middleware
@@ -91,7 +135,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: "Internal Server Error" });
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Synchronize Sequelize models with the database and start the server
+sequelize.sync().then(() => {
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
 });
