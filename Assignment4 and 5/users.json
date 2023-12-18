@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Prgya Kapur",
+    "email": "prgyakapur@gmail.com",
+    "age": 24
+  },
+  {
+    "id": "2",
+    "name": "Nirmit Khurana",
+    "email": "nirmitkhurana@gmail.com",
+    "age": 23
+  },
+  {
+    "id": "3",
+    "name": "Aditya Kuchhal",
+    "email": "adityakuchhal@gmail.com",
+    "age": 22
+  },
+  {
+    "id": "5",
+    "name": "Prachi Luthra",
+    "email": "prachiluthra@gmail.com",
+    "age": 24
+  }
+]
