@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Parth1305",
+    "database": "assignment7",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
