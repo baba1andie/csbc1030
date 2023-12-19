@@ -12,6 +12,9 @@
 4. npm install express jsonwebtoken
    npm install cookie-parser
    npm install bcrypt
+   npm install sequelize sequelize-cli mysql2
+
+
 
 5. node .
 
@@ -30,7 +33,6 @@ http://localhost3002:/users/user/1 - to view all the users perticular user( here
    http://localhost:3002/users/userPost
 
 {
-"id":"6",
 "name":"AKSHAr",
 "country":"India",
 "MOA":"JAn"
