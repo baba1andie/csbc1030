@@ -14,7 +14,7 @@ router.post('/login', async(req, res) => {
     return res.status(401).json({ error: 'Unauthorized: Invalid credentials' });
   }
 
-  const token = jwt.sign({ userId: user.id }, 'your_secret_key');
+  const token = jwt.sign({ userId: user.id }, 'itsAbc@123456');
   res.status(200).json({ token });
 });
 

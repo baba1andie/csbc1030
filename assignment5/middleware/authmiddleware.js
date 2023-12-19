@@ -7,7 +7,7 @@ function authenticateToken(req, res, next) {
     return res.status(401).json({ error: 'Unauthorized: No token provided' });
   }
 
-  jwt.verify(token, 'your_secret_key', (err, user) => {
+  jwt.verify(token, 'itsAbc@123456', (err, user) => {
     if (err) {
       return res.status(403).json({ error: 'Forbidden: Invalid token' });
     }
