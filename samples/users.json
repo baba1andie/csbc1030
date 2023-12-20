@@ -25,5 +25,11 @@
     "email": "yyy@gmail.com",
     "name": "yyy",
     "password": "$2b$10$zDoK9CSzsO2iL/Z5ThWzeeTuBkIIRpdn5Oe4Tac6x6mo0McWJvFr6"
+  },
+  {
+    "id": "d385e602-6bd1-44a7-9b1b-01910e7e1815",
+    "email": "zzz@gmail.com",
+    "name": "zzz",
+    "password": "$2b$10$NUSYYUD7WxcbLleMG36ti.F/Hp2EdDrbefrfTbK78Oph3.zoFIpKW"
   }
 ]

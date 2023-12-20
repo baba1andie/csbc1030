@@ -10,25 +10,27 @@ const {
 } = require("../services/authService.js");
 let usersObj = [];
 
+// Logic To get all Users
 const getUsers = async (req, res) => {
   try {
-    usersObj = await readFile();
+    usersObj = await readFile(); // Reads the json file for Users data
     res.status(200).send(JSON.stringify(usersObj));
   } catch (error) {
     res.status(400).send({ Error: error });
   }
 };
 
+// Logic for Find User by Id
 const getUserById = async (req, res) => {
   usersObj = await readFile();
   let token;
   try {
-    token = await findTokenInCookie(req);
+    token = await findTokenInCookie(req); // To Read the auth-token in cookies
   } catch (err) {
     return res.status(401).send({ error: err.message });
   }
   try {
-    let verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => 'secretKey'
+    let verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => which is the seceret key for jwt
     if (!verifiedUser) {
       return res
         .status(401)
@@ -54,13 +56,14 @@ const getUserById = async (req, res) => {
   }
 };
 
+// Logic to Create New User
 const addNewUser = async (req, res) => {
   try {
     usersObj = await readFile();
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10); // To generate salt for password hashing
     let user;
     try {
-      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+      const hashedPassword = await bcrypt.hash(req.body.password, salt); // To Hash password
       user = {
         id: uuidv4(),
         email: req.body.email,
