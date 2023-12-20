@@ -27,7 +27,28 @@ npm run format
 npm run lint
 npm run lint:fix
 
-Step 3: To Login, Open the following url in browser for post('/')
+Step 3: DATABASE SETUP
+Make sure you create a database with name "CSBC1030_ASSIGNMENT07" in mysql workbench/shell or any mysql ide of your choice
+
+# 3.1 In Mysql Workbench, if you don't have the database
+
+create database CSBC1030_ASSIGNMENT07;
+
+# 3.2 In Mysql Workbench
+
+use CSBC1030_ASSIGNMENT07;
+
+# 3.3 In Nodejs Terminal - To start the application
+
+node index.js
+
+# 3.4 In Mysql Workbench, If you don't have data to Login
+
+INSERT INTO User (email, name, password) VALUES
+('asl@gmail.com', 'asl', '$2b$10$gClrAclaFpPWkYf64ZMn0e8uy6.ODX/1OFIjBJC5EOSfSmuMLc4ES'),
+('vimmi@gmail.com', 'vimmi', '$2b$10$XzS0i4QTGtwJUAnKM6ZgSOLImNh71WgA5nzqCPG/6PhfFFIciIN5e');
+
+Step 4: To Login, Open the following url in browser for post('/')
 http://localhost:3000/api/users/login
 
 Json Body example
@@ -36,13 +57,13 @@ Json Body example
 "password": "123"
 }
 
-Step 4: Open the following url in browser for get('/')
+Step 5: Open the following url in browser for get('/')
 http://localhost:3000/api/users
 
-Step 5: Open the following url in browser for get('/:id')
+Step 6: Open the following url in browser for get('/:id')
 http://localhost:3000/api/users/{id}
 
-Step 6: Open the following url in browser for post('/')
+Step 7: Open the following url in browser for post('/')
 http://localhost:3000/api/users
 
 Json Body example
@@ -51,3 +72,7 @@ Json Body example
 "name": "asl",
 "password": "123"
 }
+
+NOTE:
+If you try to access any of the given URL before login, It will give the following error
+"Access Denied - Token Unavailable/Empty in Header"

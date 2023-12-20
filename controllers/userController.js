@@ -3,8 +3,12 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
 const { User } = require("../models/user.js");
-const { idFromTokenPayload } = require("../services/authService.js");
+const {
+  idFromTokenPayload,
+  findTokenInCookie,
+} = require("../services/authService.js");
 
+// Logic To get all Users
 const getUsers = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -14,13 +18,16 @@ const getUsers = async (req, res) => {
   }
 };
 
+// Logic for Find User by Id
 const getUserById = async (req, res) => {
-  const token = await req.cookies["auth-token"];
-  if (!token) {
-    res.status(401).send("Access Denied - Token Unavailable/Empty in Header");
+  let token;
+  try {
+    token = await findTokenInCookie(req); // To Read the auth-token in cookie
+  } catch (err) {
+    return res.status(401).send({ error: err.message });
   }
   try {
-    let verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => 'secretKey'
+    let verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => which is the seceret key for jwt
     if (!verifiedUser) {
       res.status(401).send("Unauthorized request - jwt verification failed");
     }
@@ -42,16 +49,21 @@ const getUserById = async (req, res) => {
   }
 };
 
+// Logic to Create New User
 const addNewUser = async (req, res) => {
+  const salt = await bcrypt.genSalt(10); // To generate salt for password hashing
+  let user;
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    let user = {
+    const hashedPassword = await bcrypt.hash(req.body.password, salt); // To Hash password
+    user = {
       email: req.body.email,
       name: req.body.name,
       password: hashedPassword,
     };
-
+  } catch (error) {
+    return res.status(400).send("Invalid fields for user");
+  }
+  try {
     user = await User.create(user);
     res.status(201).send(`User with id ${user.id} is added successfully`);
   } catch (error) {

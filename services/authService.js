@@ -17,4 +17,14 @@ const idFromTokenPayload = (token) => {
   const payload = decoded.payload;
   return payload.id;
 };
-module.exports = { generateToken, idFromTokenPayload };
+
+const findTokenInCookie = async (req) => {
+  const token = await req.cookies["auth-token"];
+  if (!token) {
+    throw new Error("Access Denied - Token Unavailable/Empty in Header");
+  } else {
+    return token;
+  }
+};
+
+module.exports = { generateToken, idFromTokenPayload, findTokenInCookie };
