@@ -5,6 +5,9 @@ const {
   getUserById,
   addNewUser,
 } = require("../controllers/userController.js");
+// const someMiddleware = require("../middleware/middlewares.js");
+
+// router.use(someMiddleware);
 
 router.get("/", getUsers);
 

@@ -50,3 +50,7 @@ Json Body example
 "name": "asl",
 "password": "123"
 }
+
+NOTE:
+If you try to access any of the given URL before login, It will give the following error
+"Access Denied - Token Unavailable/Empty in Header"

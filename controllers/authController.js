@@ -18,7 +18,7 @@ const loginUser = async (req, res) => {
       }
 
       const token = await generateToken(user);
-      res.cookie("auth-token", token, { maxAge: 3600000, httpOnly: true });
+      res.cookie("auth-token", token, { maxAge: 180000, httpOnly: true }); // maxAge: 3 mins
       res.status(200).send({
         message: `User with email ${user.email} Logged IN successfully`,
         token: token,
