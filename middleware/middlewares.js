@@ -1,6 +1,6 @@
 const { findTokenInCookie } = require("../services/authService.js");
 
-const someMiddleware = async (req, res, next) => {
+const authFilter = async (req, res, next) => {
   console.time("Request");
   console.log(`METHOD: ${req.method}; URL: ${req.url}}`);
 
@@ -9,9 +9,13 @@ const someMiddleware = async (req, res, next) => {
     next();
   } catch (err) {
     console.log("No Token");
-    return res.status(501).send(err.message);
+    return res.status(401).send(err.message);
   }
   console.timeEnd("Request");
 };
 
-module.exports = someMiddleware;
+const badRequest = async (req, res) => {
+  return res.status(500).send("Bad Request");
+};
+
+module.exports = { authFilter, badRequest };

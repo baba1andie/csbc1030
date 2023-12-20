@@ -7,11 +7,11 @@ Asignment 1 - Please refer to the instructions in Assignment1.txt for instructio
 
 Step 1: Run the following to import express into node_modules
 npm init -y
-npm install express
+npm install express sequelize mysql2 body-parser
 npm install express bcrypt jsonwebtoken
 npm install express cookie-parser --save
 npm install dotenv
-npm install express sequelize mysql2 body-parser
+npm install --save supertest mocha chai chai-http
 
 # To install eslint and prettier: (Optional)
 
@@ -72,6 +72,16 @@ Json Body example
 "name": "asl",
 "password": "123"
 }
+
+Step 7: To run Test
+
+# For Unit Testing
+
+npm run test
+
+# For End To End Testing
+
+npm run test:e2e
 
 NOTE:
 If you try to access any of the given URL before login, It will give the following error
