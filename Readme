@@ -1,0 +1,38 @@
+# how to run the code
+
+1. clone the repo from github
+   git clone "https://github.com/Shubhptl/csbc1030.git"
+
+2. cd csbc1030
+
+3. cd Assignment5;
+
+# install all the dependencies and run the code
+
+4. npm install express jsonwebtoken
+   npm install cookie-parser
+   npm install bcrypt
+   npm install sequelize sequelize-cli mysql2
+   npm install --save-dev mocha chai supertest
+
+how to run the testing code 5. npm run unitTest - for the unit test
+npm run e2eTest - for the end to end test
+
+6. go to postman and select put requerst and add follwing body
+   http://localhost:3002/users/login
+
+{
+"email": "shubham@gmail.com",
+"password": "Shubham"
+} 7. go to the web brower
+http://localhost3002:/users/user- to view all the users
+http://localhost3002:/users/user/1 - to view all the users perticular user( here id 1 will be display)
+
+8. to insert data go to postman and select put requerst and add follwing body
+   http://localhost:3002/users/userPost
+
+{
+"name":"AKSHAr",
+"country":"India",
+"MOA":"JAn"
+}
