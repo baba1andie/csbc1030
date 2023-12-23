@@ -1,0 +1,141 @@
+[
+  {
+    "id": 1,
+    "name": "Eleanor Simmons",
+    "username": "Ella",
+    "email": "Eleanor.Simmons@example.com",
+    "address": {
+      "street": "Pine Avenue",
+      "suite": "Apt. 123",
+      "city": "Harmonyville",
+      "zipcode": "12345-6789",
+      "geo": {
+        "lat": "-40.1234",
+        "lng": "75.6789"
+      }
+    },
+    "phone": "1-800-555-1234",
+    "website": "eleanorsimmons.org",
+    "company": {
+      "name": "Simmons and Co",
+      "catchPhrase": "Innovate with Purpose",
+      "bs": "transform user-centric metrics"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Sebastian Thompson",
+    "username": "Sebby",
+    "email": "Sebastian.Thompson@example.tv",
+    "address": {
+      "street": "Maple Lane",
+      "suite": "Suite 456",
+      "city": "Mapleton",
+      "zipcode": "54321-9876",
+      "geo": {
+        "lat": "-35.6789",
+        "lng": "80.1234"
+      }
+    },
+    "phone": "555-987-6543 x7890",
+    "website": "sebastianthompson.net",
+    "company": {
+      "name": "Thompson Innovations",
+      "catchPhrase": "Empowering Solutions",
+      "bs": "optimize extensible architectures"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Victoria Greene",
+    "username": "Vicky",
+    "email": "Victoria.Greene@example.net",
+    "address": {
+      "street": "Rosewood Street",
+      "suite": "Apt. 789",
+      "city": "Greenville",
+      "zipcode": "98765",
+      "geo": {
+        "lat": "-25.4321",
+        "lng": "70.9876"
+      }
+    },
+    "phone": "123-456-7890",
+    "website": "victoriagreene.info",
+    "company": {
+      "name": "Greene Technologies",
+      "catchPhrase": "Synergize Collaborative Systems",
+      "bs": "orchestrate B2B niches"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Oliver Mitchell",
+    "username": "Ollie",
+    "email": "Oliver.Mitchell@example.org",
+    "address": {
+      "street": "Cedar Road",
+      "suite": "Suite 321",
+      "city": "Woodland",
+      "zipcode": "54321",
+      "geo": {
+        "lat": "-30.8765",
+        "lng": "85.4321"
+      }
+    },
+    "phone": "987-654-3210 x4321",
+    "website": "olivermitchell.biz",
+    "company": {
+      "name": "Mitchell Enterprises",
+      "catchPhrase": "Transformative Business Solutions",
+      "bs": "evolve mission-critical networks"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Sophie Anderson",
+    "username": "SophieA",
+    "email": "Sophie.Anderson@example.ca",
+    "address": {
+      "street": "Linden Lane",
+      "suite": "Apt. 567",
+      "city": "Blossomville",
+      "zipcode": "12345-6789",
+      "geo": {
+        "lat": "-38.8765",
+        "lng": "75.4321"
+      }
+    },
+    "phone": "1-800-321-7654",
+    "website": "sophieanderson.co",
+    "company": {
+      "name": "Anderson Solutions",
+      "catchPhrase": "Innovate for Tomorrow",
+      "bs": "aggregate cutting-edge e-services"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Daniel Rodriguez",
+    "username": "DannyR",
+    "email": "Daniel.Rodriguez@example.tv",
+    "address": {
+      "street": "Sycamore Avenue",
+      "suite": "Suite 234",
+      "city": "Crescent City",
+      "zipcode": "98765-4321",
+      "geo": {
+        "lat": "-45.4321",
+        "lng": "80.8765"
+      }
+    },
+    "phone": "555-321-7654 x8765",
+    "website": "dannyrodriguez.info",
+    "company": {
+      "name": "Rodriguez Dynamics",
+      "catchPhrase": "Revolutionize Dynamic Platforms",
+      "bs": "e-enable user-centric applications"
+    }
+  }
+]
+ 
