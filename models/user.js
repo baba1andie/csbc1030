@@ -1,6 +1,8 @@
 const sequelize = require("../config/dbConfig.js");
 const { DataTypes } = require("sequelize");
 
+const { Post } = require("./post.js");
+
 const User = sequelize.define(
   "User",
   {
@@ -28,6 +30,6 @@ const User = sequelize.define(
   },
 );
 
-User.sync();
+User.hasMany(Post, { foreignKey: "user_id" });
 
 module.exports = { User };

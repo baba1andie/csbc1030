@@ -1,11 +1,16 @@
-const { findTokenInCookie } = require("../services/authService.js");
+const {
+  findTokenInCookie,
+  findVerifiedUser,
+} = require("../services/authService.js");
 
 const authFilter = async (req, res, next) => {
   console.time("Request");
   console.log(`METHOD: ${req.method}; URL: ${req.url}}`);
 
   try {
-    await findTokenInCookie(req);
+    const token = await findTokenInCookie(req);
+    const id = await findVerifiedUser(token);
+    req.userId = id;
     next();
   } catch (err) {
     console.log("No Token");

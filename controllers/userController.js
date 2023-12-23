@@ -1,11 +1,11 @@
 const bcrypt = require("bcrypt");
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
 
 const { User } = require("../models/user.js");
 const {
   idFromTokenPayload,
   findTokenInCookie,
+  findVerifiedUser,
 } = require("../services/authService.js");
 
 // Logic To get all Users
@@ -23,16 +23,9 @@ const getUserById = async (req, res) => {
   let token;
   try {
     token = await findTokenInCookie(req); // To Read the auth-token in cookie
+    findVerifiedUser(token);
   } catch (err) {
     return res.status(401).send({ error: err.message });
-  }
-  try {
-    let verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => which is the seceret key for jwt
-    if (!verifiedUser) {
-      res.status(401).send("Unauthorized request - jwt verification failed");
-    }
-  } catch (error) {
-    res.status(400).send("Invalid Token");
   }
   const userId = req.params.id;
   const user = await User.findByPk(userId);

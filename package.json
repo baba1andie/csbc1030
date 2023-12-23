@@ -4,8 +4,7 @@
   "description": "Welcome to CSBC1030 - Fall 2023 \r This repo is where you will submit your assignments for review.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/unit/userTest.js",
-    "test:e2e": "mocha tests/e2e/userTest.js",
+    "test": "mocha tests/*/*.js",
     "format": "prettier --write .",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix "

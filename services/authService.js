@@ -27,4 +27,19 @@ const findTokenInCookie = async (req) => {
   }
 };
 
-module.exports = { generateToken, idFromTokenPayload, findTokenInCookie };
+const findVerifiedUser = async (token) => {
+  const verifiedUser = await jwt.verify(token, process.env.TOKEN_SECRET); // env.TOKEN_SECRET => which is the seceret key for jwt
+  if (!verifiedUser) {
+    throw new Error("Access Denied - jwt verification failed");
+  } else {
+    const id = idFromTokenPayload(token);
+    return id;
+  }
+};
+
+module.exports = {
+  generateToken,
+  idFromTokenPayload,
+  findTokenInCookie,
+  findVerifiedUser,
+};
