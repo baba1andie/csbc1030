@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const { User, Post, Comment } = require('./models/associations');
 const { User} = require('./model/user')
 const usersRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
@@ -28,3 +27,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;

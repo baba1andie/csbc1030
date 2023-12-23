@@ -1,5 +1,3 @@
-// models/User.js
-
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/dbconnect');
 
@@ -8,6 +6,7 @@ const User = sequelize.define('User', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
+    autoIncrement: true,
   },
   name: {
     type: DataTypes.STRING,
@@ -16,6 +15,7 @@ const User = sequelize.define('User', {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
@@ -24,29 +24,10 @@ const User = sequelize.define('User', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
-  address_street: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  address_suite: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  address_city: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  address_zipcode: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  address_geo_lat: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  address_geo_lng: {
-    type: DataTypes.STRING,
+  address: {
+    type: DataTypes.JSON,
     allowNull: false,
   },
   phone: {
@@ -55,19 +36,11 @@ const User = sequelize.define('User', {
   },
   website: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
-  company_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  company_catchPhrase: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  company_bs: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  company: {
+    type: DataTypes.JSON,
+    allowNull : true
   },
 },
 {
@@ -76,5 +49,3 @@ const User = sequelize.define('User', {
 });
 
 module.exports = User;
-
-// Define associations or sync the model in another file

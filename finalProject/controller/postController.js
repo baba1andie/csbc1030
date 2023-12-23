@@ -2,7 +2,8 @@ const Post = require('../model/post');
 
 async function createPost(req, res) {
     try {
-        const authenticatedUserId = req.user.userId;
+      const authenticatedUserId = req.user.userId;
+      console.log(req.user);
         const postData = {
             userId : authenticatedUserId,
             title : req.body.title,
@@ -12,7 +13,7 @@ async function createPost(req, res) {
         res.status(201).json({ message: 'Post created successfully', post: newPost });
 
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(500).json({ error: 'Error creating post' });
     }
 }
@@ -22,10 +23,10 @@ async function getAllPosts(req, res) {
     try {
       const posts = await Post.findAll({
         where: { userId: userIdFromToken },
-      });;
-      res.json(posts);
+      });
+      res.status(201).json({ message: 'Successfully fetch all posts', data: posts });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       res.status(500).json({ error: 'Error fetching posts' });
     }
 }
@@ -37,7 +38,7 @@ async function getPostById(req, res) {
     try {
       
       const post = await Post.findByPk(postId);
-      console.log(post);
+      // console.log(post);
       if (post.userId == authenticatedUserId) {
           if (!post) {
               return res.status(404).json({ error: 'Access denied' });
@@ -48,7 +49,6 @@ async function getPostById(req, res) {
         res.status(404).json({ error: 'Post not found' });
       }
     } catch (error) {
-      console.log(error);
       res.status(500).json({ error: 'Error fetching user' });
     }
   }
@@ -79,14 +79,10 @@ async function updatePost(req, res) {
     }
   }
   
-  
-  // Add other user-related controller functions as needed
-  
   module.exports = {
     getAllPosts,
     getPostById,
     createPost,
     updatePost
-    // Add other functions here
   };
   
