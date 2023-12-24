@@ -1,0 +1,2 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'jobin123';
+login to root USERask chatgot to enable all privilages to your database and then flush previlages

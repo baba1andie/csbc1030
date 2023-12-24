@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "user_id": 1,
+      "title": "First Post",
+      "body": "This is the first post by Alice."
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "title": "Second Post",
+      "body": "This is the first post by Bob."
+    }
+  ]
+  
