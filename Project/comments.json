@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "post_id": 1,
+      "name": "Charlie",
+      "email": "charlie@example.com",
+      "body": "Great post, Alice!"
+    },
+    {
+      "id": 2,
+      "post_id": 2,
+      "name": "Daisy",
+      "email": "daisy@example.com",
+      "body": "Interesting thoughts, Bob."
+    }
+  ]
+  
