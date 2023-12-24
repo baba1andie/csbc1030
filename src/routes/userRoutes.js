@@ -9,4 +9,6 @@ router.post('/login', userController.login);
 // Route to fetch all users
 router.get('/', userController.getAllUsers);
 
+router.post('/', userController.createUser); //temp for data insert
+
 module.exports = router;

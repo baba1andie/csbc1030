@@ -1,42 +1,37 @@
 
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../../config/dbConfig');
+const { Comment } = require('./commentModel.js');
 
 const Post = sequelize.define('Post', {
     // Define your Post model fields here
+
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
+    userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    username: {
+
+    body: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    // address: {
-    //     type: DataTypes.JSONB,
-    //     allowNull: false,
-    // },
-    phone: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    website: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    // company: {
-    //     type: DataTypes.JSONB,
-    //     allowNull: false,
-    // },
-});
+
+},
+    {
+        tableName: "Post",
+        timestamps: false,
+    }
+);
+Post.hasMany(Comment, { foreignKey: "postId" });
 
 module.exports = { Post };

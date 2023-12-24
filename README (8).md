@@ -33,7 +33,7 @@ The following endpoints all process data relevant to the sender's user id
 ##### Adding Data
 
 - POST /posts to create a new post
-- POST /posts/:id/comments to add a new comment to a post
+- POST /posts/:id/comments to add a new comment to a post    /i dont understand
 
 ##### Updating Data
 

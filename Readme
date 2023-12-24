@@ -5,7 +5,11 @@
 
 2. cd csbc1030
 
-3. cd Assignment5;
+3. open sql command line and add sql query for first user to log-in 
+INSERT INTO User (name, username, password, email, phone, website)
+VALUES ('Leanne Graham', 'Bret', 'Bret', 'Sincere@april.biz', '1-770-736-8031 x56442', 'hildegard.org');
+
+
 
 # install all the dependencies and run the code
 
@@ -16,24 +20,58 @@
    
 
 
-5. node .
+5. npm start
 
-6. go to postman and select put requerst and add follwing body
-   http://localhost:3002/users/userPost
+6. go to postman and select Post requerst and add follwing body
+   http://localhost:3000/users/login
+{
+    
+        "email": "Sincere@april.biz",
+        "password":"Bret"
+        
+    }
+
+7. Open the following url in browser for get('/') - ALL Post
+http://localhost:3000/users to view all the users
+
+8. Open the following url in browser for get('/') - All Users 
+   http://localhost:3000/posts/1
+
+9. Open the following url in browser for post('/') - Create Post
+   http://localhost:3000/posts
+  {
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+
+10. Open the following url in browser for patch('/:id') - Update Post
+   http://localhost:3000/posts/1
 
 {
-"email": "shubham@gmail.com",
-"password": "Shubham"
-} 
-7. go to the web brower
-http://localhost3002:/users/user- to view all the users
-http://localhost3002:/users/user/1 - to view all the users perticular user( here id 1 will be display)
+        "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        "body": "test for comment"
+    }
+11. Open the following url in browser for get('/:postId/comment/:commentId') - ALL Comments for a particular Post
+   http://localhost:3000/posts/1/comment
 
-8. to insert data go to postman and select put requerst and add follwing body
-   http://localhost:3002/users/userPost
-
+12. Open the following url in browser for post('/:postId/comment') - Create Comment for a particular Post
+http://localhost:3000/posts/1/comment
 {
-"name":"AKSHAr",
-"country":"India",
-"MOA":"JAn"
-}
+
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    }
+
+13. Open the following url in browser for patch('/:postId/comment/:commentId') - Update one Comment for a particular Post
+http://localhost:3000/posts/1/comment/1
+{
+
+        "body": "laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium"
+    }
+    
+14. Open the following url in browser for delete('/:postId/comments/:commentId') - Delete one Comment for a particular Post
+http://localhost:3000/posts/1/comment/1 
+
+# For Unit Testing and e2e Testing
+
+npm run test
+

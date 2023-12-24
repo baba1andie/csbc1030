@@ -1,34 +1,20 @@
 // middleware/authenticateUser.js
-const jwt = require('jsonwebtoken');
-const { User } = require('../models/userModel');
+const { findTokenInCookies, getPayload } = require('../services/authService.js');
 
 const authenticateUser = async (req, res, next) => {
-    const token = req.header('Authorization');
-
-    if (!token) {
-        return res.status(401).json({ error: 'Unauthorized: No token provided' });
-    }
-
+    console.log("Entering Middleware...");
     try {
-        const decoded = jwt.verify(token, 'your-secret-key');
-        const user = await User.findByPk(decoded.userId);
-
-        if (!user) {
-            throw new Error('User not found');
-        }
-
-        req.user = user;
-        next();
+        const token = await findTokenInCookies(req);
+        // if (token) {
+            const user = await getPayload(token);
+            req.user = user;
+            next();
+        // }
     } catch (error) {
-        console.error('Error in authentication middleware:', error);
-
-        if (error.name === 'TokenExpiredError') {
-            return res.status(401).json({ error: 'Unauthorized: Token expired' });
-        }
-
-        return res.status(401).json({ error: 'Unauthorized: Invalid token' });
-    
+        console.log(error.stack);
+        return res.status(401).json({ error: error.message });
     }
+    console.log("Leaving Middleware...");
 };
 
-module.exports = authenticateUser;
+module.exports = { authenticateUser };
