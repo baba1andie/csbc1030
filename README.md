@@ -5,13 +5,16 @@ This repo is where you will submit your assignments for review.
 
 Asignment 1 - Please refer to the instructions in Assignment1.txt for instructions on how to submit your work.
 
-Step 1: Run the following to import express into node_modules
+# Following are the dependencies used in this project
 npm init -y
 npm install express sequelize mysql2 body-parser
 npm install bcrypt jsonwebtoken
 npm install cookie-parser --save
 npm install dotenv
 npm install --save supertest mocha chai chai-http
+
+Step 1: To import all the dependencies used
+npm install
 
 # To install eslint and prettier: (Optional)
 
@@ -32,7 +35,18 @@ Make sure you create a database with name "CSBC1030_Final_Assignment" in mysql w
 
 # 3.1 In Mysql Workbench, if you don't have the database
 
-create database CSBC1030_Final_Assignment;
+Connection Name: <any_name>
+Connection Method: Standard (TCP/IP)
+Parameters:
+    Hostname: csbc-service-csbc1040.a.aivencloud.com
+    Port: 13626
+    Username: avnadmin
+
+-> Click "Test Connection"
+Password: AVNS_urgsiIqhNFwvZa-e7pv
+-> Click OK - Successfully made the MySQL Connection message should appear
+-> Click OK - To close success message
+-> Click OK - To save the connection
 
 # 3.2 In Mysql Workbench
 
@@ -43,19 +57,19 @@ use CSBC1030_Final_Assignment;
 node index.js
 
 # 3.4 In Mysql Workbench, If you don't have data to Login
-
+# As this database is in cloud, I have already added the below data
 INSERT INTO User (email, name, password) VALUES
 ('asl@gmail.com', 'asl', '$2b$10$gClrAclaFpPWkYf64ZMn0e8uy6.ODX/1OFIjBJC5EOSfSmuMLc4ES'),
 ('vimmi@gmail.com', 'vimmi', '$2b$10$XzS0i4QTGtwJUAnKM6ZgSOLImNh71WgA5nzqCPG/6PhfFFIciIN5e');
 
 # 3.5 In Mysql Workbench, If you need data Post Table
-
+# As this database is in cloud, I have already added the below data
 INSERT INTO Post (user_id, title, content) VALUES
 (1, 'Post Number 1 for User 1', 'This is the content of the post'),
 (2, 'Post Number 1 for User 2', 'This is the content of the post');
 
 # 3.6 In Mysql Workbench, If you need data Comment Table
-
+# As this database is in cloud, I have already added the below data
 INSERT INTO Comment (post_id, text) VALUES
 (1, 'Some Text for post1, comment1'),
 (1, 'Some Text for post1, comment2');

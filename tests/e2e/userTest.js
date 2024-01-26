@@ -2,16 +2,12 @@ const supertest = require("supertest");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const { describe, it, before, after } = require("mocha");
-const { app } = require("../../index.js");
+const { app, server } = require("../../index.js");
 
 const expect = chai.expect;
 chai.use(chaiHttp);
 
 let authToken;
-const port = 3114;
-const server = app.listen(port, () =>
-  console.log(`Application running in port ${port}`),
-);
 
 before((done) => {
   supertest(app)
@@ -38,6 +34,9 @@ describe("e2e API Tests", () => {
   });
 });
 
-after(() => {
-  server.close();
+// Add a cleanup function to close the server after tests
+after((done) => {
+  server.close(() => {
+    done();
+  });
 });

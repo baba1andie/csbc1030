@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
+require("dotenv").config();
 const port = process.env.port || 3000;
 const authRoute = require("./routes/auth.js");
 const userRoutes = require("./routes/users.js");
@@ -26,6 +27,6 @@ app.use("/api/posts", postRoutes);
 app.use("/api/posts", commentRoutes);
 app.use(badRequest);
 
-app.listen(port, () => console.log(`Application running in port ${port}`));
+const server = app.listen(port, () => console.log(`Application running in port ${port}`));
 
-module.exports = { app };
+module.exports = { app, server };
